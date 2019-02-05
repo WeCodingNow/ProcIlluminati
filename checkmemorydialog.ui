@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>checkmemorydialog</class>
+ <widget class="QDialog" name="checkmemorydialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>444</width>
+    <height>399</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Посмотреть область памяти</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPlainTextEdit" name="memoryText">
+         <property name="minimumSize">
+          <size>
+           <width>364</width>
+           <height>356</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>364</width>
+           <height>356</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Courier New</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="lowerMemoryLabel">
+           <property name="maximumSize">
+            <size>
+             <width>55</width>
+             <height>13</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>0x00400000</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QScrollBar" name="verticalScrollBar">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>2750</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="upperMemoryLabel">
+           <property name="maximumSize">
+            <size>
+             <width>55</width>
+             <height>13</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>0x00500000</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="closeButton">
+     <property name="text">
+      <string>Закрыть</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>closeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>checkmemorydialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>379</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>232</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
