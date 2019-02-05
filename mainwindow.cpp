@@ -113,14 +113,14 @@ void MainWindow::RefreshWatchers()
         return;
     }
 
-    QFile file = QFile(filename);
-    if (filename!= "" && !file.open(QIODevice::WriteOnly | QIODevice::Append)) {
-        QMessageBox::information(this, tr("Ошибка при открытии файла"),
-                                 file.errorString());
-        return;
-    }
+//    QFile file = QFile(filename);
+//    if (filename!= "" && !file.open(QIODevice::WriteOnly | QIODevice::Append)) {
+//        QMessageBox::information(this, tr("Ошибка при открытии файла"),
+//                                 file.errorString());
+//        return;
+//    }
 
-    QTextStream out(&file);
+//    QTextStream out(&file);
 
 //    for(int i = 0; i < ui->LoggingListWidget->count(); ++i)
 //    {
@@ -129,7 +129,7 @@ void MainWindow::RefreshWatchers()
 //        out << (item->text() + "\r\n").toUtf8();
 //    }
 
-    file.close();
+//    file.close();
 
     for (int i = 0; i < ui->WatchersListView->count(); i++)
     {
@@ -140,15 +140,15 @@ void MainWindow::RefreshWatchers()
         for(int j = 0; j < logP->count(); j++)
         {
             auto* bass = new QListWidgetItem(logP->at(j));
-
-            out << (bass->text() + "\r\n").toUtf8();
+            saveNewInfo(logP->at(j) + "\r\n");
+            //out << (bass->text() + "\r\n").toUtf8();
 
             ui->LoggingListWidget->addItem(bass);//logP->at(j));
 
         }
     }
 
-    file.close();
+//    file.close();
     ui->SaveLogAction->setEnabled(true);
 }
 
@@ -182,19 +182,19 @@ void MainWindow::SaveToFile()
 }
 
 void MainWindow::saveNewInfo(QString data) {
-//    if(filename != "") {
-//        QFile file = QFile(filename);
+    if(filename != "") {
+        QFile file = QFile(filename);
 
-//        if (!file.open(QIODevice::WriteOnly | QIODevice::Append)) {
-//            QMessageBox::information(this, tr("Ошибка при открытии файла"),
-//                                     file.errorString());
-//            return;
-//        }
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Append)) {
+            QMessageBox::information(this, tr("Ошибка при открытии файла"),
+                                     file.errorString());
+            return;
+        }
 
-//        QDataStream out(&file);
-//        out << (data + "\r\n").toUtf8();
-//        file.close();
-//    }
+        QTextStream out(&file);
+        out << (data).toUtf8();
+        file.close();
+    }
 
 }
 
